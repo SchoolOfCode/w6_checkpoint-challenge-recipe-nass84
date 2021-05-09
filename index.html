@@ -7,7 +7,7 @@
   </head>
   <body>
     <section id="recipe-section">
-      <h2 class="section-heading">Welcome to the Recipe Finder!</h2>
+      <h1 class="section-heading">Welcome to the Recipe Finder!</h1>
       <input
         aria-label="food-input"
         id="food-input"
@@ -16,7 +16,12 @@
       <button id="recipe-button" onclick="handleRecipeClick()">
         Give me a recipe!
       </button>
+
+      <h2 id="name-of-recipe"></h2>
+      <img id="recipe-picture" />
+      <br />
       <a id="recipe-label"></a>
+      <p id="calories"></p>
     </section>
     <script src="./main.js"></script>
   </body>
