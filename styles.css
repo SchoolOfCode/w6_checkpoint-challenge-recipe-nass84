@@ -4,12 +4,14 @@ body {
   font-family: Verdana, Geneva, Tahoma, sans-serif;
   text-align: center;
   background-color: rgb(5, 58, 58);
-  margin: 1rem;
+  background-image: url("https://image.freepik.com/free-photo/tasty-appetizing-farm-organic-vegetables-with-healthy-grocery-light-background-healthy-eating-concept-top-view_1220-5483.jpg ");
+  width: auto;
+  margin: 10rem;
 }
 
 #recipe-section{
   background-color: white;
-  margin;: 100px, 20px, 40px, 100px
+  margin;: 100px, 200px, 40px, 200px
 }
 
 input {

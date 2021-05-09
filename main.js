@@ -61,6 +61,7 @@ questionImage.classList.add("hide");
     // // add image
   let firstRecipeImage = document.getElementById("recipe-picture");
   firstRecipeImage.src = recipe.recipe.image;
+  firstRecipeImage.alt="picture of cooked receipe"
 // add ingredients
 let ingredients = document.getElementById("ingredients");
 ingredients.innerText = `Main Ingredients are ${recipe.recipe.ingredientLines[0]} and ${recipe.recipe.ingredientLines[1]} and ${recipe.recipe.ingredientLines[2]}`;
@@ -77,6 +78,7 @@ ingredients.innerText = `Main Ingredients are ${recipe.recipe.ingredientLines[0]
     // // add image
   let secondRecipeImage = document.getElementById("recipe-picture2");
   secondRecipeImage.src = recipe2.recipe.image;
+  secondRecipeImage.alt="picture of cooked receipe"
 // add ingredients
 let ingredients2 = document.getElementById("ingredients2");
 ingredients2.innerText = `Main Ingredients are ${recipe2.recipe.ingredientLines[0]} and ${recipe2.recipe.ingredientLines[1]} and ${recipe2.recipe.ingredientLines[2]}`;
