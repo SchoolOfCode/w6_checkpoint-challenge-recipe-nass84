@@ -50,8 +50,9 @@ async function fetchRecipe(food) {
   console.log(data);
   const recipe = data.hits[0];
   // hide picture
-  let questionImage = document.getElementById("questionImage");
-  questionImage.classList.add("hide");
+  let logoImage = document.getElementById("logoImage");
+  logoImage.classList.add("hide");
+   //First Recipe
   // Change name of receipe
   let recipeName = document.getElementById("name-of-recipe");
   recipeName.innerText = recipe.recipe.label;
@@ -62,9 +63,16 @@ async function fetchRecipe(food) {
   let firstRecipeImage = document.getElementById("recipe-picture");
   firstRecipeImage.src = recipe.recipe.image;
   firstRecipeImage.alt = "picture of cooked receipe";
+  // image to website
+  let firstImageWebsite = document.getElementById("image-website");
+  firstImageWebsite.href = recipe.recipe.url;
+ 
   // add ingredients
   let ingredients = document.getElementById("ingredients");
   ingredients.innerText = `Main Ingredients are ${recipe.recipe.ingredientLines[0]} and ${recipe.recipe.ingredientLines[1]} and ${recipe.recipe.ingredientLines[2]}`;
+  // add meal type
+  let mealType = document.getElementById("meal-type");
+  mealType.innerText = ` ${recipe.recipe.dietLabels}`;
 
   //--- second Receipe---
   const recipe2 = data.hits[1];
@@ -79,9 +87,17 @@ async function fetchRecipe(food) {
   let secondRecipeImage = document.getElementById("recipe-picture2");
   secondRecipeImage.src = recipe2.recipe.image;
   secondRecipeImage.alt = "picture of cooked receipe";
+    // image to website
+    let secondImageWebsite = document.getElementById("image-website2");
+    secondImageWebsite.href = recipe2.recipe.url;
   // add ingredients
   let ingredients2 = document.getElementById("ingredients2");
   ingredients2.innerText = `Main Ingredients are ${recipe2.recipe.ingredientLines[0]} and ${recipe2.recipe.ingredientLines[1]} and ${recipe2.recipe.ingredientLines[2]}`;
+ // add meal type
+ let mealType2 = document.getElementById("meal-type2");
+ mealType2.innerText = ` ${recipe2.recipe.dietLabels}`;
 }
 
+
 // - Add a CSS file and style your page appropriately.
+

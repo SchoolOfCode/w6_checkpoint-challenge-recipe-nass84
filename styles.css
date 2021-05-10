@@ -1,5 +1,4 @@
 
-
 body {
   font-family: Verdana, Geneva, Tahoma, sans-serif;
   text-align: center;
@@ -56,5 +55,5 @@ h1 {
 #questionImage{
   width: 200px;
   height: 200px;
-  padding-bottom: 50px;
+  margin-top: 50px;
 }

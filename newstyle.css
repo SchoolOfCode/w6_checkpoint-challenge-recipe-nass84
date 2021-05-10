@@ -1,0 +1,147 @@
+body {
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  text-align: center;
+  color: #2b2e4a;
+}
+
+#logo {
+  max-width: 100%;
+  max-height: 300px;
+}
+
+#image-section {
+  display: flex;
+  justify-content: center;
+}
+
+#logoImage {
+  margin-top: 50px;
+  width: 250px;
+  height: 250px;
+}
+
+.hide {
+  display: none;
+}
+
+#heading-section {
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: center;
+}
+
+h1 {
+  font-family: Georgia, 'Times New Roman', Times, serif;
+  text-align: center;
+  color: #2b2e4a;
+  font-style: italic;
+  font-size: 2rem;
+
+}
+
+h2 {
+    max-width: 350px;
+    height: 70px;
+    margin: auto;
+    text-align: center;
+    color: #2b2e4a;
+    
+  }
+
+  
+#search-section {
+  display: flex;
+  /* flex-flow: column nowrap; */
+  justify-content: center;
+  margin-bottom: 20px;
+  background-color: #3e426a;
+  height: 100px;
+}
+
+input {
+    align-self: center;
+  font-size: 1.5rem;
+  min-width: 250px;
+  text-align: center;
+  height: 70px;
+  
+}
+#recipe-button {
+  background-color: #cbbe6a;
+  color: #2b2e4a;
+  font-size: 20px;
+  padding: 0, 20px, 0, 20px;
+  height: 80px;
+   align-self: center;
+ 
+  
+}
+
+#recipe-button:hover  {
+background-color: #d8c690;
+transition: 0.5s;
+cursor: pointer;
+}
+
+.recipe-container {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: center;
+}
+
+.recipe-item {
+  padding: 20px;
+  margin: 20px;
+}
+
+.image {
+  border-radius: 15px;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+.information {
+  max-width: 260px;
+  text-align: center;
+  font-size: 1rem;
+  margin: auto;
+  color: #2b2e4a;
+}
+
+
+.link {
+  width: 200px;
+  display: flex;
+  justify-content: center;
+  margin: auto;
+}
+
+.image:hover {
+    transform: scale(1.1);
+     animation-duration: 500ms;
+     animation-fill-mode: forwards;
+    }
+
+    .link:hover {
+        transform: scale(1.1);
+         animation-duration: 500ms;
+         animation-fill-mode: backwards;
+         color:  #cbbe6a;
+         
+        }
+  
+  /* @keyframes background-color {
+      100% {
+        background-color: #4791d0; */
+
+.tribute-link {
+    text-align: center;
+    display: inline-block;
+    padding: 1em; 
+    color: white;
+    background-color: #272869;
+      border-color: white;
+      border-width:1px;
+      border-style:solid;
+      border-radius: 40px;
+  }

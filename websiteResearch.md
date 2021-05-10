@@ -1,16 +1,27 @@
 # Recipe Websites Research 
 
 ## To do 
-- [ ] Pick Name
-- [ ] Make Logo
-- [ ] Add colour behind search bar
-- [ ] Match the font color to the logo 
-- [ ] Add border radius to pictures
-- [ ] Add big image for first result and smaller ones underneath 
-- [ ] Open up recipe in a new tab so user doesnt navigate from page
-- [ ] Add more recipes
-- [ ] Pick random receipe button  
-- [ ] Add animations when you click on picture
+- [x] Pick Name
+- [x] Make Logo - https://looka.com/
+- [x] Add colour behind search bar
+- [x] Match the font color to the logo 
+- [x] Add border radius to pictures
+- [x] Open up recipe in a new tab so user doesnt navigate from page
+- [x] Add more API info
+- [ ] Add more recipes/do we have to use data.hits[0] or can it be random 
+- [ ] Add big image for first result and 6 smaller ones underneath 
+- [ ] Make a random receipe button  
+- [ ] Add animations when you hover on picture
+- [ ] Use second information from second API somewhere on page         
+        - song to cook to? 
+        - cocktail to drink? 
+- [ ] Add contact form with email and telephone input 
+- [ ] Check HTML for semantic meaning 
+- [ ] Run Lighthouse audit and fix changes
+- [ ] Run Axe audit and fix changes
+
+        
+
 
 
 ## Website
