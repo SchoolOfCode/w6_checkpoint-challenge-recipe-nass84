@@ -16,8 +16,8 @@ body {
 
 #logoImage {
   margin-top: 50px;
-  width: 250px;
-  height: 250px;
+  width: 150px;
+  height: 150px;
 }
 
 .hide {
@@ -31,27 +31,26 @@ body {
 }
 
 h1 {
-  font-family: Georgia, 'Times New Roman', Times, serif;
+  font-family: Georgia, "Times New Roman", Times, serif;
   text-align: center;
   color: #2b2e4a;
   font-style: italic;
   font-size: 2rem;
-
+  margin-top: 20px;
+  margin-bottom: 20px;
 }
 
 h2 {
-    max-width: 350px;
-    height: 70px;
-    margin: auto;
-    text-align: center;
-    color: #2b2e4a;
-    
-  }
+  font-size: 1.2rem;
+  max-width: 350px;
+  height: 70px;
+  margin: auto;
+  text-align: center;
+  color: #2b2e4a;
+}
 
-  
 #search-section {
   display: flex;
-  /* flex-flow: column nowrap; */
   justify-content: center;
   margin-bottom: 20px;
   background-color: #3e426a;
@@ -59,28 +58,25 @@ h2 {
 }
 
 input {
-    align-self: center;
-  font-size: 1.5rem;
-  min-width: 250px;
+  align-self: center;
+  font-size: 1.2rem;
+  min-width: 150px;
   text-align: center;
   height: 70px;
-  
 }
 #recipe-button {
   background-color: #cbbe6a;
   color: #2b2e4a;
-  font-size: 20px;
+  font-size: 1.2rem;
   padding: 0, 20px, 0, 20px;
-  height: 80px;
-   align-self: center;
- 
-  
+  height: 77px;
+  align-self: center;
 }
 
-#recipe-button:hover  {
-background-color: #d8c690;
-transition: 0.5s;
-cursor: pointer;
+#recipe-button:hover {
+  background-color: #d8c690;
+  transition: 0.5s;
+  cursor: pointer;
 }
 
 .recipe-container {
@@ -90,58 +86,48 @@ cursor: pointer;
 }
 
 .recipe-item {
-  padding: 20px;
-  margin: 20px;
+  padding: 10px;
+  margin: 10px;
 }
 
 .image {
   border-radius: 15px;
   margin-top: 20px;
   margin-bottom: 20px;
+  max-height: 200px;
 }
 
 .information {
   max-width: 260px;
   text-align: center;
-  font-size: 1rem;
+  font-size: 0.9rem;
   margin: auto;
   color: #2b2e4a;
 }
-
 
 .link {
   width: 200px;
   display: flex;
   justify-content: center;
   margin: auto;
+  color: #3e426a;
+  font-size: 0.9rem;
 }
 
 .image:hover {
-    transform: scale(1.1);
-     animation-duration: 500ms;
-     animation-fill-mode: forwards;
-    }
+  transform: scale(1.1);
+  animation-duration: 500ms;
+  animation-fill-mode: forwards;
+}
 
-    .link:hover {
-        transform: scale(1.1);
-         animation-duration: 500ms;
-         animation-fill-mode: backwards;
-         color:  #cbbe6a;
-         
-        }
-  
-  /* @keyframes background-color {
-      100% {
-        background-color: #4791d0; */
+.link:hover {
+  transform: scale(1.1);
+  animation-duration: 500ms;
+  animation-fill-mode: backwards;
+  color: #cbbe6a;
+}
 
-.tribute-link {
-    text-align: center;
-    display: inline-block;
-    padding: 1em; 
-    color: white;
-    background-color: #272869;
-      border-color: white;
-      border-width:1px;
-      border-style:solid;
-      border-radius: 40px;
-  }
+#logo-section {
+  display: flex;
+  justify-content: flex-start;
+}

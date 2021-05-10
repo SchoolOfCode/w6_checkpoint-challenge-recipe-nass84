@@ -52,7 +52,10 @@ async function fetchRecipe(food) {
   // hide picture
   let logoImage = document.getElementById("logoImage");
   logoImage.classList.add("hide");
-   //First Recipe
+  // hide logo
+  let logo = document.getElementById("logo");
+  logo.classList.add("hide");
+  //First Recipe
   // Change name of receipe
   let recipeName = document.getElementById("name-of-recipe");
   recipeName.innerText = recipe.recipe.label;
@@ -66,10 +69,10 @@ async function fetchRecipe(food) {
   // image to website
   let firstImageWebsite = document.getElementById("image-website");
   firstImageWebsite.href = recipe.recipe.url;
- 
+
   // add ingredients
   let ingredients = document.getElementById("ingredients");
-  ingredients.innerText = `Main Ingredients are ${recipe.recipe.ingredientLines[0]} and ${recipe.recipe.ingredientLines[1]} and ${recipe.recipe.ingredientLines[2]}`;
+  ingredients.innerText = `Main Ingredients are ${recipe.recipe.ingredientLines[0]} and ${recipe.recipe.ingredientLines[1]}`;
   // add meal type
   let mealType = document.getElementById("meal-type");
   mealType.innerText = ` ${recipe.recipe.dietLabels}`;
@@ -87,17 +90,17 @@ async function fetchRecipe(food) {
   let secondRecipeImage = document.getElementById("recipe-picture2");
   secondRecipeImage.src = recipe2.recipe.image;
   secondRecipeImage.alt = "picture of cooked receipe";
-    // image to website
-    let secondImageWebsite = document.getElementById("image-website2");
-    secondImageWebsite.href = recipe2.recipe.url;
+  // image to website
+  let secondImageWebsite = document.getElementById("image-website2");
+  secondImageWebsite.href = recipe2.recipe.url;
   // add ingredients
   let ingredients2 = document.getElementById("ingredients2");
-  ingredients2.innerText = `Main Ingredients are ${recipe2.recipe.ingredientLines[0]} and ${recipe2.recipe.ingredientLines[1]} and ${recipe2.recipe.ingredientLines[2]}`;
- // add meal type
- let mealType2 = document.getElementById("meal-type2");
- mealType2.innerText = ` ${recipe2.recipe.dietLabels}`;
+  ingredients2.innerText = `Main Ingredients are ${recipe2.recipe.ingredientLines[0]} and ${recipe2.recipe.ingredientLines[1]}`;
+  // add meal type
+  let mealType2 = document.getElementById("meal-type2");
+  mealType2.innerText = ` ${recipe2.recipe.dietLabels}`;
 }
-
 
 // - Add a CSS file and style your page appropriately.
 
+// refresh page
