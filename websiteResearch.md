@@ -8,10 +8,10 @@
 - [x] Add border radius to pictures
 - [x] Open up recipe in a new tab so user doesnt navigate from page
 - [x] Add more API info
-- [ ] Add more recipes/do we have to use data.hits[0] or can it be random 
+- [x] Add more recipes/do we have to use data.hits[0] or can it be random 
 - [ ] Add big image for first result and 6 smaller ones underneath 
 - [ ] Make a random receipe button  
-- [ ] Add animations when you hover on picture
+- [x] Add animations when you hover on picture
 - [ ] Use second information from second API somewhere on page         
         - song to cook to? 
         - cocktail to drink? 

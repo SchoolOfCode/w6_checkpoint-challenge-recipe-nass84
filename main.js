@@ -11,38 +11,41 @@ function handleFoodChange() {
   foodToSearch = document.querySelector("#food-input").value;
 }
 
-// add h2
-// add h2 class="name" id="name-of-recipe"
-// add image class="image" id="recipe-picture" id="image-website" href="" target="_blank"
-// add <p class="information" id="ingredients"></p>
-// add br
-// add <p class="information" id="meal-type"></p>
-//  <br>
-// add  <a class="link" id="recipe-label" target="_blank"></a>
-
 async function fetchRecipe(food) {
   const requestUrl = `https://api.edamam.com/search?q=${food}&app_id=${APP_ID}&app_key=${APP_KEY}&from=0&to=20`;
   const response = await fetch(requestUrl);
-  const data = await response.json();
-  const recipe = data.hits[0];
-  console.log(recipe);
-  addRecipetoHTML(recipe.recipe);
+  // { hits } Destructering - find the key called hits in object
+  let { hits } = await response.json();
+
+  // on click clear the section
+  let section = document.getElementById("recipe-container");
+  section.innerHTML = "";
+
+  // go through array and limit to 6
+
+  for (i = 0; i < hits.length; i++) {
+    if (i === 6) {
+      break;
+    }
+    addRecipetoHTML(hits[i].recipe);
+  }
 }
 
 function addRecipetoHTML(recipe) {
-   
   // hide image
   let logoImage = document.getElementById("logoImage");
   logoImage.classList.add("hide");
-   // hide logo
-   let logo = document.getElementById("logo");
-   logo.classList.add("hide");
- // on click clear the section 
-  let section = document.getElementById("recipe-section");
-  section.innerHTML = ""
-     // Create H2
+  // hide logo
+  let logo = document.getElementById("logo");
+  logo.classList.add("hide");
+  // create container
+  let sectionContainer = document.getElementById("recipe-container");
+  // create section
+  let section = document.createElement("section");
+  sectionContainer.appendChild(section);
+  // Create H2
   let h2 = document.createElement("h2");
-  section.setAttribute("id", "recipe-section");
+  // section.setAttribute("id", "recipe-section");
   section.setAttribute("class", "recipe-item");
   section.appendChild(h2);
   // Add name of recipe to h2
@@ -55,14 +58,14 @@ function addRecipetoHTML(recipe) {
   aTag.setAttribute("href", recipe.url);
   aTag.setAttribute("target", "_blank");
   aTag.setAttribute("id", "image-website");
-  h2.appendChild(aTag);
+  section.appendChild(aTag);
   // Show Image
   let image = document.createElement("img");
   image.setAttribute("src", recipe.image);
   image.setAttribute("alt", "picture of cooked receipe");
   image.setAttribute("id", "recipe-picture");
   image.setAttribute("class", "image");
-  aTag.appendChild(image);
+  section.appendChild(image);
 
   // create p tag
   // add ingredients
@@ -70,7 +73,7 @@ function addRecipetoHTML(recipe) {
   ingredientText.innerText = `Main Ingredients are ${recipe.ingredientLines[0]} and ${recipe.ingredientLines[1]}`;
   ingredientText.setAttribute("id", "ingredients");
   ingredientText.setAttribute("class", "information");
-  h2.appendChild(ingredientText);
+  section.appendChild(ingredientText);
 
   // add meal type
   let mealTypeText = document.createElement("p");
@@ -80,7 +83,7 @@ function addRecipetoHTML(recipe) {
   ingredientText.appendChild(mealTypeText);
   //Create break
   let breakTag = document.createElement("br");
-  mealTypeText.appendChild(breakTag);
+  section.appendChild(breakTag);
   // Link to get recipe
   let aTag2 = document.createElement("a");
   aTag2.setAttribute("href", recipe.url);
@@ -88,8 +91,5 @@ function addRecipetoHTML(recipe) {
   aTag2.setAttribute("id", "recipe-label");
   aTag2.setAttribute("class", "link");
   aTag2.innerText = `Click here for full ${recipe.label} recipe`;
-  mealTypeText.appendChild(aTag2);
-
+  section.appendChild(aTag2);
 }
-
-

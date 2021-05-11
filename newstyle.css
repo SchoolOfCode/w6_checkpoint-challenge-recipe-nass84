@@ -79,7 +79,7 @@ input {
   cursor: pointer;
 }
 
-.recipe-container {
+#recipe-container {
   display: flex;
   flex-flow: row wrap;
   justify-content: center;
@@ -133,12 +133,11 @@ input {
   justify-content: flex-start;
 }
 
-
-#ingredients{
+#ingredients {
   font-weight: 100;
 }
 
-#meal-type{
+#meal-type {
   margin-top: 10px;
   font-weight: bold;
 }
