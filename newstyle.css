@@ -112,6 +112,7 @@ input {
   margin: auto;
   color: #3e426a;
   font-size: 0.9rem;
+  padding-top: 20px;
 }
 
 .image:hover {
@@ -130,4 +131,14 @@ input {
 #logo-section {
   display: flex;
   justify-content: flex-start;
+}
+
+
+#ingredients{
+  font-weight: 100;
+}
+
+#meal-type{
+  margin-top: 10px;
+  font-weight: bold;
 }
