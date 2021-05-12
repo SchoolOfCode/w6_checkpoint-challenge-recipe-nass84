@@ -11,26 +11,47 @@ function handleFoodChange() {
   foodToSearch = document.querySelector("#food-input").value;
 }
 
+
+// async function fetchRecipe(food) {
+//   const requestUrl = `https://api.edamam.com/search?q=${food}&app_id=${APP_ID}&app_key=${APP_KEY}&from=0&to=20`;
+//   const response = await fetch(requestUrl);
+//   // { hits } Destructering - find the key called hits in object 
+//   let { hits } = await response.json();
+ 
+//   // on click clear the section
+//   let section = document.getElementById("recipe-container");
+//   section.innerHTML = "";
+
+//   // go through array and limit to 8
+
+//   for (i = 0; i < hits.length; i++) {
+//     if (i === 8){
+//       break;
+//     }
+//     addRecipetoHTML(hits[i].recipe);
+//   }
+
+// }
+
+
 async function fetchRecipe(food) {
   const requestUrl = `https://api.edamam.com/search?q=${food}&app_id=${APP_ID}&app_key=${APP_KEY}&from=0&to=20`;
   const response = await fetch(requestUrl);
-  // { hits } Destructering - find the key called hits in object
+  // { hits } Destructering - find the key called hits in object 
   let { hits } = await response.json();
-
-  // on click clear the section
-  let section = document.getElementById("recipe-container");
-  section.innerHTML = "";
-
-  // go through array and limit to 6
-
+  // take the first 6 items of the array 
   for (i = 0; i < hits.length; i++) {
-    if (i === 6) {
+    if (i === 6){
       break;
     }
     addRecipetoHTML(hits[i].recipe);
   }
 }
 
+0
+
+
+  
 function addRecipetoHTML(recipe) {
   // hide image
   let logoImage = document.getElementById("logoImage");
