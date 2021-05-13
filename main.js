@@ -140,9 +140,25 @@ function addBreadPuntoHTML(pun) {
 // Play song on the site
 
 async function getSpotifyTrack(searchTerm) {
+  const appID = "ea810eaba96447188795f462bd108f12";
+  const appSecret = "7631eef9f27842688636afe3c7eb4913";
+  const base64Auth = "Basic " + btoa(appID + ":" + appSecret);
+
+  const authResponse = await fetch("https://accounts.spotify.com/api/token", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/x-www-form-urlencoded",
+      Accept: "application/json",
+      Authorization: base64Auth,
+    },
+    body: new URLSearchParams({
+      grant_type: "client_credentials",
+    }),
+  });
+
+  const authJSON = await authResponse.json();
   // Token that allows permission to do certain things. More secure than adding user name. Shouldnt really put these things in code but we created a dummy account
-  const OAuth =
-    "Bearer BQDaeSdzu7VK2AmKujVKN2dfEmaInI78FC9rT4AediGIZoxpZ888jrOv2hLxwu7oHpu9VK4Zl2gM2Z1zVzAiiLJzBTVB_iDz3CGT81UjafijEavoIW_CWgQh2l6UVJDOUWjh1kxs4R77hpM1doWMTmj6FGPZH34";
+  const OAuth = "Bearer " + authJSON.access_token;
   const url = `https://api.spotify.com/v1/search?q=${searchTerm}&type=track&market=GB`;
   const response = await fetch(url, {
     method: "GET",
