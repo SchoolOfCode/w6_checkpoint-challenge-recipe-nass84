@@ -27,9 +27,16 @@
         type="text"
         onchange="handleFoodChange()"
       />
-      <button id="recipe-button" onclick="handleRecipeClick()">
+      <button class="button" id="recipe-button" onclick="handleRecipeClick()">
         Find recipe!
       </button>
+    </section>
+
+    <section id="recipe-container">
+      <button class="button" onclick="fetchBreadPun()" id="bread-pun-button">
+        Get Bread Pun
+      </button>
+      
     </section>
 
     <section id="image-section">
@@ -40,11 +47,9 @@
       />
     </section>
 
-    <div id="recipe-container">
-      <!-- <section class="recipe-item" id="recipe-section">
-        Add recipe information here 
-      </section> -->
-    </div>
+   
+
+    <section id="bread-pun"></section>
 
     <script src="./main.js"></script>
   </body>

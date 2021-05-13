@@ -37,7 +37,6 @@ Link:     [Spotify](https://developer.spotify.com/documentation/web-api/)
 * Possible log in problems if people dont have spotify accounts 
 
 
-
 ## Music API
 Link:     [Taste Dive](https://tastedive.com/read/api)
  

@@ -64,6 +64,7 @@ input {
   text-align: center;
   height: 70px;
 }
+
 #recipe-button {
   background-color: #cbbe6a;
   color: #2b2e4a;
@@ -74,6 +75,21 @@ input {
 }
 
 #recipe-button:hover {
+  background-color: #d8c690;
+  transition: 0.5s;
+  cursor: pointer;
+}
+
+#bread-pun-button {
+  background-color: #cbbe6a;
+  color: #2b2e4a;
+  font-size: 1.2rem;
+  padding: 0, 20px, 0, 20px;
+  align-self: center;
+  border-radius: 30px 40px 30px 40px;
+}
+
+#bread-pun-button:hover {
   background-color: #d8c690;
   transition: 0.5s;
   cursor: pointer;
@@ -140,4 +156,8 @@ input {
 #meal-type {
   margin-top: 10px;
   font-weight: bold;
+}
+
+#bread-pun {
+  margin-top: 20px;
 }
