@@ -31,9 +31,9 @@ async function fetchRecipe(food) {
   // Clear Section
   let section = document.getElementById("recipe-container");
   section.innerHTML = "";
-  // take the first 8 items of the array
+  // take the first 9 items of the array
   for (i = 0; i < hits.length; i++) {
-    if (i === 8) {
+    if (i === 12) {
       break;
     }
     addRecipetoHTML(hits[i].recipe);
@@ -77,9 +77,13 @@ function addRecipetoHTML(recipe) {
   // Show Image
   let image = document.createElement("img");
   image.setAttribute("src", recipe.image);
-  image.setAttribute("alt", "picture of cooked receipe");
+  image.setAttribute("alt", `Picture of ${recipe.label} receipe`);
   image.setAttribute("id", "recipe-picture");
   image.setAttribute("class", "image");
+  image.setAttribute("target", "_blank");
+  image.onclick = function() {
+    window.location.href = recipe.url;
+};
   section.appendChild(image);
 
   // create p tag
@@ -91,11 +95,11 @@ function addRecipetoHTML(recipe) {
   section.appendChild(ingredientText);
 
   // add meal type
-  let mealTypeText = document.createElement("p");
-  mealTypeText.innerText = recipe.dietLabels;
-  mealTypeText.setAttribute("id", "meal-type");
-  mealTypeText.setAttribute("class", "information");
-  ingredientText.appendChild(mealTypeText);
+  // let mealTypeText = document.createElement("p");
+  // mealTypeText.innerText = recipe.dietLabels;
+  // mealTypeText.setAttribute("id", "meal-type");
+  // mealTypeText.setAttribute("class", "information");
+  // ingredientText.appendChild(mealTypeText);
   //Create break
   let breakTag = document.createElement("br");
   section.appendChild(breakTag);
@@ -105,7 +109,7 @@ function addRecipetoHTML(recipe) {
   aTag2.setAttribute("target", "_blank");
   aTag2.setAttribute("id", "recipe-label");
   aTag2.setAttribute("class", "link");
-  aTag2.innerText = `Click here for full ${recipe.label} recipe`;
+   aTag2.innerText = `View ${recipe.label} recipe`;
   section.appendChild(aTag2);
 }
 
@@ -186,7 +190,7 @@ async function getSpotifyTrack(searchTerm) {
   const iframe = document.createElement("iframe");
   // create the iframe to embed the spotify player
   iframe.setAttribute("src", src);
-  iframe.setAttribute("width", "300");
+  iframe.setAttribute("width", "280");
   iframe.setAttribute("height", "80");
   iframe.setAttribute("frameborder", "0");
   iframe.setAttribute("allowtransparency", "true");
