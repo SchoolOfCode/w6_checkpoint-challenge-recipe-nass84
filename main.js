@@ -71,19 +71,19 @@ function addRecipetoHTML(recipe) {
   //create a tag
   let aTag = document.createElement("a");
   aTag.setAttribute("href", recipe.url);
-  aTag.setAttribute("target", "_blank");
+  // aTag.setAttribute("target", "_blank");
   aTag.setAttribute("id", "image-website");
   section.appendChild(aTag);
   // Show Image
   let image = document.createElement("img");
+  image.setAttribute("target", "_blank"); //target not working
   image.setAttribute("src", recipe.image);
   image.setAttribute("alt", `Picture of ${recipe.label} receipe`);
   image.setAttribute("id", "recipe-picture");
   image.setAttribute("class", "image");
-  image.setAttribute("target", "_blank");
-  image.onclick = function() {
+  image.onclick = function() {  
     window.location.href = recipe.url;
-};
+    };
   section.appendChild(image);
 
   // create p tag
