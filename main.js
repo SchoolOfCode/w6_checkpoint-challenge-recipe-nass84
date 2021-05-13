@@ -1,42 +1,38 @@
 const APP_ID = "d8fd0460";
 const APP_KEY = "37050a008e4132375bf91f4f49a78d3e";
 
-
-
-// On click of Find Recipe button this takes the input and uses that to search the API 
+// On click of Find Recipe button this takes the input and uses that to search the API
 let foodToSearch = null;
 
 function handleRecipeClick() {
   fetchRecipe(foodToSearch);
+  getSpotifyTrack(foodToSearch);
 }
 
 function handleFoodChange() {
   foodToSearch = document.querySelector("#food-input").value;
 }
 
-
 // This retrieves information from the API. Clears the information from the previous search. The loop will display the amount of items in the i === section
 
 async function fetchRecipe(food) {
   const requestUrl = `https://api.edamam.com/search?q=${food}&app_id=${APP_ID}&app_key=${APP_KEY}&from=0&to=20`;
   const response = await fetch(requestUrl);
-  // { hits } Destructering - find the key called hits in object 
+  // { hits } Destructering - find the key called hits in object
   let { hits } = await response.json();
   // Clear Section
   let section = document.getElementById("recipe-container");
   section.innerHTML = "";
-  // take the first 8 items of the array 
+  // take the first 8 items of the array
   for (i = 0; i < hits.length; i++) {
-    if (i === 8){
+    if (i === 8) {
       break;
     }
     addRecipetoHTML(hits[i].recipe);
   }
 }
 
-
-
-// This hides the images to allow space, adds a section to the HTML and adds the information from the API in that section.  
+// This hides the images to allow space, adds a section to the HTML and adds the information from the API in that section.
 // change the set attribute class to classList.add
 
 function addRecipetoHTML(recipe) {
@@ -47,7 +43,7 @@ function addRecipetoHTML(recipe) {
   let logo = document.getElementById("logo");
   logo.classList.add("hide");
   //hide bread pun
-  let breadPun = document.getElementById("bread-pun")
+  let breadPun = document.getElementById("bread-pun");
   breadPun.classList.add("hide");
   // create container
   let sectionContainer = document.getElementById("recipe-container");
@@ -107,19 +103,17 @@ function addRecipetoHTML(recipe) {
 
 // let breadPunSection = getElementById("recipe-container")
 
-
-// function to fetch bread puns 
+// function to fetch bread puns
 
 async function fetchBreadPun() {
   const requestUrl = `https://my-bao-server.herokuapp.com/api/breadpuns`;
   const response = await fetch(requestUrl);
   let pun = await response.json();
-  console.log(pun)
-  addBreadPuntoHTML(pun)
+  console.log(pun);
+  addBreadPuntoHTML(pun);
 }
 
-// function to display bread puns in HTML 
-
+// function to display bread puns in HTML
 
 function addBreadPuntoHTML(pun) {
   // create container and clear
@@ -139,4 +133,41 @@ function addBreadPuntoHTML(pun) {
   h2.setAttribute("id", "bread-pun");
   h2.setAttribute("class", "name");
 }
+// Third Api added as a joint project with Max Edwards to play random spotify track
+// Plan
+// Find API that will use input to search for a song
+// Get random track
+// Play song on the site
 
+async function getSpotifyTrack(searchTerm) {
+  // Token that allows permission to do certain things. More secure than adding user name. Shouldnt really put these things in code but we created a dummy account
+  const OAuth =
+    "Bearer BQDaeSdzu7VK2AmKujVKN2dfEmaInI78FC9rT4AediGIZoxpZ888jrOv2hLxwu7oHpu9VK4Zl2gM2Z1zVzAiiLJzBTVB_iDz3CGT81UjafijEavoIW_CWgQh2l6UVJDOUWjh1kxs4R77hpM1doWMTmj6FGPZH34";
+  const url = `https://api.spotify.com/v1/search?q=${searchTerm}&type=track&market=GB`;
+  const response = await fetch(url, {
+    method: "GET",
+    headers: {
+      "Content-Type": "application/json",
+      Accept: "application/json",
+      Authorization: OAuth,
+    },
+  });
+  const json = await response.json();
+  // const id = json.tracks.items[0].id;
+  // get random track
+  const id =
+    json.tracks.items[Math.floor(Math.random() * json.tracks.items.length)].id;
+  const src = `https://open.spotify.com/embed/track/${id}`;
+  const iframe = document.createElement("iframe");
+  // create the iframe to embed the spotify player
+  iframe.setAttribute("src", src);
+  iframe.setAttribute("width", "300");
+  iframe.setAttribute("height", "80");
+  iframe.setAttribute("frameborder", "0");
+  iframe.setAttribute("allowtransparency", "true");
+  iframe.setAttribute("allow", "encrypted-media");
+  // Clear previous player and add to html
+  const spotifySection = document.getElementById("spotify");
+  spotifySection.innerHTML = "";
+  spotifySection.appendChild(iframe);
+}
