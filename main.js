@@ -13,6 +13,14 @@ function handleFoodChange() {
   foodToSearch = document.querySelector("#food-input").value;
 }
 
+let input = document.getElementById("food-input");
+input.addEventListener("keyup", function(event) {
+  if (event.keyCode === 13) {
+   event.preventDefault();
+   document.getElementById("recipe-button").click();
+  }
+});
+
 // This retrieves information from the API. Clears the information from the previous search. The loop will display the amount of items in the i === section
 
 async function fetchRecipe(food) {
@@ -140,6 +148,7 @@ function addBreadPuntoHTML(pun) {
 // Play song on the site
 
 async function getSpotifyTrack(searchTerm) {
+  
   const appID = "ea810eaba96447188795f462bd108f12";
   const appSecret = "7631eef9f27842688636afe3c7eb4913";
   const base64Auth = "Basic " + btoa(appID + ":" + appSecret);
