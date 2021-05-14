@@ -12,9 +12,28 @@
     <title>Recipe Finder</title>
   </head>
   <body>
+
+    <a href="https://schoolofcode.github.io/w6_checkpoint-challenge-recipe-nass84/">
+      <img src="images\home-logo.png" alt="recipe finder logo" id="home-logo">
+    </a>
+
     <section id="heading-section">
       <img alt="recipe finder logo" id="logo" src="images\long-logo.png" />
+
       <h1 class="section-heading">Search for a recipe</h1>
+    </section>
+
+    <section id="filter-choice">
+      <div>
+        <input type="checkbox" id="vegetarian" name="vegetarian" />
+        <label for="vegetarian">Vegetarian</label>
+
+        <input type="checkbox" id="gluten-free" name="gluten-free" />
+        <label for="gluten-free">Gluten Free</label>
+
+        <input type="checkbox" id="vegan" name="vegan" />
+        <label for="vegan">Vegan</label>
+      </div>
     </section>
 
     <section id="search-section">
@@ -25,8 +44,8 @@
         placeholder="Enter ingredients"
         onfocus="this.value=''"
         type="text"
-        onchange="handleFoodChange()"
       />
+
       <button class="button" id="recipe-button" onclick="handleRecipeClick()">
         Find recipe!
       </button>

@@ -2,18 +2,17 @@ const APP_ID = "d8fd0460";
 const APP_KEY = "37050a008e4132375bf91f4f49a78d3e";
 
 // On click of Find Recipe button this takes the input and uses that to search the API
-let foodToSearch = null;
+
 
 function handleRecipeClick() {
+  const foodToSearch = document.querySelector("#food-input").value;
   fetchRecipe(foodToSearch);
   getSpotifyTrack(foodToSearch);
 }
 
-function handleFoodChange() {
-  foodToSearch = document.querySelector("#food-input").value;
-}
 
 let input = document.getElementById("food-input");
+
 input.addEventListener("keyup", function(event) {
   if (event.keyCode === 13) {
    event.preventDefault();
@@ -24,21 +23,45 @@ input.addEventListener("keyup", function(event) {
 // This retrieves information from the API. Clears the information from the previous search. The loop will display the amount of items in the i === section
 
 async function fetchRecipe(food) {
-  const requestUrl = `https://api.edamam.com/search?q=${food}&app_id=${APP_ID}&app_key=${APP_KEY}&from=0&to=20`;
+  const vegetarian = document.getElementById("vegetarian").checked
+  const vegan = document.getElementById("vegan").checked
+  const gluten = document.getElementById("gluten-free").checked
+  let healthQuery = "";
+  if (vegetarian || vegan || gluten) {
+    healthQuery = "&health=";
+    if (vegetarian) {
+      healthQuery = healthQuery + "vegetarian";
+    }
+    if (vegan) {
+      healthQuery = healthQuery + "vegan";
+    }
+    if (gluten) {
+      healthQuery = healthQuery + "gluten-free";
+    }
+  }
+   // take the input, first 12 items, additional health query if checked
+  const requestUrl = `https://api.edamam.com/search?q=${food}&app_id=${APP_ID}&app_key=${APP_KEY}&from=0&to=12${healthQuery}`;
+  console.log(requestUrl)
   const response = await fetch(requestUrl);
   // { hits } Destructering - find the key called hits in object
   let { hits } = await response.json();
+  console.log(hits);
+  console.log(vegetarian);
+  console.log(vegan);
   // Clear Section
   let section = document.getElementById("recipe-container");
   section.innerHTML = "";
-  // take the first 9 items of the array
+  // take the first 12 items of the array
   for (i = 0; i < hits.length; i++) {
-    if (i === 12) {
-      break;
-    }
+    // if (i === 12) {
+    //   break;
+    // }
     addRecipetoHTML(hits[i].recipe);
   }
 }
+
+
+// healthLabels
 
 // This hides the images to allow space, adds a section to the HTML and adds the information from the API in that section.
 // change the set attribute class to classList.add
@@ -195,4 +218,14 @@ async function getSpotifyTrack(searchTerm) {
   const spotifySection = document.getElementById("spotify");
   spotifySection.innerHTML = "";
   spotifySection.appendChild(iframe);
+}
+
+
+
+const homeLogo = document.getElementById("homelogo");
+
+homeLogo.addEventListener("click", reload);
+
+function reload(){
+  location = location;
 }
