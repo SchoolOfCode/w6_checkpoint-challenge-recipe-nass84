@@ -1,0 +1,61 @@
+
+body {
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  text-align: center;
+  background-color: rgb(5, 58, 58);
+  background-image: url("https://image.freepik.com/free-photo/tasty-appetizing-farm-organic-vegetables-with-healthy-grocery-light-background-healthy-eating-concept-top-view_1220-5483.jpg ");
+  width: auto;
+  margin: 10rem;
+}
+
+#recipe-section{
+  background-color: white;
+  margin;: 100px, 200px, 40px, 200px
+}
+
+input {
+  font-size: 24px;
+  max-width: 250px;
+}
+
+button {
+  font-size: 24px;
+}
+
+h1 { 
+  color: rgb(11, 46, 46);
+  font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  font-size: 3rem;
+  padding-top: 100px;
+   
+}
+
+.recipe-container {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: center;
+ 
+}
+
+.recipe-item {
+  padding: 20px;
+  
+}
+
+.ingredients {
+  max-width: 300px;
+  text-align: center;
+  padding: 20PX;
+}
+
+.hide {
+  display: none;
+}
+
+#questionImage{
+  width: 200px;
+  height: 200px;
+  margin-top: 50px;
+}
+
+

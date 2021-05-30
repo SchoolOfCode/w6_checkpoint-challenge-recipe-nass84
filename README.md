@@ -29,7 +29,17 @@ To use your API ID and key in the url, just replace ${YOUR_APP_ID} and ${YOUR_AP
 const YOUR_APP_ID = "YOUR_APP_ID"
 const YOUR_APP_KEY = "YOUR_APP_KEY"
 
+
+const YOUR_APP_ID = "d8fd0460"
+const YOUR_APP_KEY = "
+37050a008e4132375bf91f4f49a78d3e	—
+"
+
+
 const requestUrl = `https://api.edamam.com/search?q=kale&app_id=${YOUR_APP_ID}&app_key=${YOUR_APP_KEY}`
+
+const requestUrl = `https://api.edamam.com/search?q=kale&app_id=${d8fd0460}&app_key=${
+37050a008e4132375bf91f4f49a78d3e}`
 
 ```
 

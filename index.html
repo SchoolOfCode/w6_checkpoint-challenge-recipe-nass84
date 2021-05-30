@@ -3,21 +3,72 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Fetch</title>
+    <meta
+      name="description"
+      content="Recipe generator from your choice of ingredients"
+    />
+
+    <link rel="stylesheet" href="newstyle.css" />
+    <title>Recipe Finder</title>
   </head>
   <body>
-    <section id="recipe-section">
-      <h2 class="section-heading">Welcome to the Recipe Finder!</h2>
+
+    <a href="https://schoolofcode.github.io/w6_checkpoint-challenge-recipe-nass84/">
+      <img src="images\home-logo.png" alt="recipe finder logo" id="home-logo">
+    </a>
+
+    <section id="heading-section">
+      <img alt="recipe finder logo" id="logo" src="images\long-logo.png" />
+
+      <h1 class="section-heading">Search for a recipe</h1>
+    </section>
+
+    <section id="filter-choice">
+     
+        <input type="checkbox" id="vegetarian" name="vegetarian" />
+        <label for="vegetarian">Vegetarian</label>
+
+        <input type="checkbox" id="gluten-free" name="gluten-free" />
+        <label for="gluten-free">Gluten Free</label>
+
+        <input type="checkbox" id="vegan" name="vegan" />
+        <label for="vegan">Vegan</label>
+    
+    </section>
+
+    <section id="search-section">
       <input
+        role="main"
         aria-label="food-input"
         id="food-input"
-        onchange="handleFoodChange()"
+        placeholder="Enter ingredients"
+        onfocus="this.value=''"
+        type="text"
       />
-      <button id="recipe-button" onclick="handleRecipeClick()">
-        Give me a recipe!
+
+      <button class="button" id="recipe-button" onclick="handleRecipeClick()">
+        Find recipe!
       </button>
-      <a id="recipe-label"></a>
     </section>
+
+    <section id="spotify"></section>
+
+    <section id="image-section">
+      <img
+        alt="dinner plate logo"
+        id="logoImage"
+        src="images\picture-logo.png"
+      />
+    </section>
+
+    <section id="bread-pun"></section>
+
+    <section id="recipe-container">
+      <button class="button" onclick="fetchBreadPun()" id="bread-pun-button">
+        Get Bread Pun
+      </button>
+    </section>
+
     <script src="./main.js"></script>
   </body>
 </html>

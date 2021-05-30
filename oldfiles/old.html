@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Recipe generator from your choice of ingredients"
+    />
+
+    <link rel="stylesheet" href="newstyle.css" />
+    <title>Recipe Finder</title>
+  </head>
+  <body>
+
+
+    <section id="heading-section">
+      <img alt="recipe finder logo" id="logo" src="images\long-logo.png" />
+      <h1 class="section-heading">Search for a recipe</h1>
+    </section>
+
+    <section id="search-section">
+      <input
+        role="main"
+        aria-label="food-input"
+        id="food-input"
+        placeholder="Enter ingredients"
+        onfocus="this.value=''"
+        type="text"
+        onchange="handleFoodChange()"
+      />
+      <button id="recipe-button" onclick="handleRecipeClick()">
+        Find recipe!
+      </button>
+    </section>
+
+    <section id="image-section">
+      <img
+        alt="dinner plate logo"
+        id="logoImage"
+        src="images\picture-logo.png"
+      />
+    </section>
+
+    <div class="recipe-container">
+      <section class="recipe-item" id="first-recipe">
+        <h2 class="name" id="name-of-recipe"></h2>
+        <a id="image-website" href="" target="_blank">
+          <img class="image" id="recipe-picture" />
+        </a>
+        
+        <p class="information" id="ingredients"></p>
+        <br>
+        <p class="information" id="meal-type"></p>
+        <br>
+        <a class="link" id="recipe-label" target="_blank"></a>
+      </section>
+
+      <section class="recipe-item" id="second-recipe">
+        <h2 class="name" id="name-of-recipe2"></h2>
+        <a id="image-website2" href="" target="_blank">
+          <img class="image" id="recipe-picture2" />
+        </a>
+        <br />
+        <p class="information" id="ingredients2"></p>
+        <br />
+        <p class="information" id="meal-type2"></p>
+        <br />
+        <a class="link" id="recipe-label2" target="_blank"></a>
+      </section>
+    </div>
+
+    <script src="./old.js"></script>
+  </body>
+</html>
