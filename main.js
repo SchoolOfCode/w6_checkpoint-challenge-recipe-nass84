@@ -3,29 +3,27 @@ const APP_KEY = "37050a008e4132375bf91f4f49a78d3e";
 
 // On click of Find Recipe button this takes the input and uses that to search the API
 
-
 function handleRecipeClick() {
   const foodToSearch = document.querySelector("#food-input").value;
   fetchRecipe(foodToSearch);
   getSpotifyTrack(foodToSearch);
 }
 
-
 let input = document.getElementById("food-input");
 
-input.addEventListener("keyup", function(event) {
+input.addEventListener("keyup", function (event) {
   if (event.keyCode === 13) {
-   event.preventDefault();
-   document.getElementById("recipe-button").click();
+    event.preventDefault();
+    document.getElementById("recipe-button").click();
   }
 });
 
 // This retrieves information from the API. Clears the information from the previous search. The loop will display the amount of items in the i === section
 
 async function fetchRecipe(food) {
-  const vegetarian = document.getElementById("vegetarian").checked
-  const vegan = document.getElementById("vegan").checked
-  const gluten = document.getElementById("gluten-free").checked
+  const vegetarian = document.getElementById("vegetarian").checked;
+  const vegan = document.getElementById("vegan").checked;
+  const gluten = document.getElementById("gluten-free").checked;
   let healthQuery = "";
   if (vegetarian || vegan || gluten) {
     healthQuery = "&health=";
@@ -39,15 +37,11 @@ async function fetchRecipe(food) {
       healthQuery = healthQuery + "gluten-free";
     }
   }
-   // take the input, first 12 items, additional health query if checked
+  // take the input, first 12 items, additional health query if checked
   const requestUrl = `https://api.edamam.com/search?q=${food}&app_id=${APP_ID}&app_key=${APP_KEY}&from=0&to=12${healthQuery}`;
-  console.log(requestUrl)
   const response = await fetch(requestUrl);
   // { hits } Destructering - find the key called hits in object
   let { hits } = await response.json();
-  console.log(hits);
-  console.log(vegetarian);
-  console.log(vegan);
   // Clear Section
   let section = document.getElementById("recipe-container");
   section.innerHTML = "";
@@ -59,7 +53,6 @@ async function fetchRecipe(food) {
     addRecipetoHTML(hits[i].recipe);
   }
 }
-
 
 // healthLabels
 
@@ -128,7 +121,7 @@ function addRecipetoHTML(recipe) {
   aTag2.setAttribute("target", "_blank");
   aTag2.setAttribute("id", "recipe-label");
   aTag2.setAttribute("class", "link");
-   aTag2.innerText = `View ${recipe.label} recipe`;
+  aTag2.innerText = `View ${recipe.label} recipe`;
   section.appendChild(aTag2);
 }
 
@@ -140,7 +133,6 @@ async function fetchBreadPun() {
   const requestUrl = `https://my-bao-server.herokuapp.com/api/breadpuns`;
   const response = await fetch(requestUrl);
   let pun = await response.json();
-  console.log(pun);
   addBreadPuntoHTML(pun);
 }
 
@@ -171,7 +163,6 @@ function addBreadPuntoHTML(pun) {
 // Play song on the site
 
 async function getSpotifyTrack(searchTerm) {
-  
   const appID = "ea810eaba96447188795f462bd108f12";
   const appSecret = "7631eef9f27842688636afe3c7eb4913";
   const base64Auth = "Basic " + btoa(appID + ":" + appSecret);
@@ -220,12 +211,10 @@ async function getSpotifyTrack(searchTerm) {
   spotifySection.appendChild(iframe);
 }
 
-
-
 const homeLogo = document.getElementById("homelogo");
 
 homeLogo.addEventListener("click", reload);
 
-function reload(){
+function reload() {
   location = location;
 }
